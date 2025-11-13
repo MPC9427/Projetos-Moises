@@ -138,7 +138,7 @@ Etapas e comandos para criar um Pull Request
 git checkout -b nome-do-branch
 
 git add .
-git commit -m "Pasta Git"
+git commit -m "Update"
 git push origin Desenvolvimento
 
 
