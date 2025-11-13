@@ -1,28 +1,45 @@
-Sub FazerBackup()
-    Dim pastaOrigem As String
-    Dim pastaDestino As String
-    Dim arquivo As String
-    Dim fso As Object
+Dim pastaOrigem, pastaDestino, fso, pasta, arquivo, dataLimite, logFile, logText, novoNome, timestamp
 
-    ' Defina os caminhos das pastas
-    pastaOrigem = "C:\Users\moises.costa\Desktop\Projetos Sistemas"      ' Altere para sua pasta de origem
-    pastaDestino = "C:\Users\moises.costa\Desktop"     ' Altere para sua pasta de destino
+pastaOrigem = "C:\Users\moises.costa\Desktop\"
+pastaDestino = "C:\Users\moises.costa\Desktop\Backup\"
+dataLimite = Now - 1 ' Últimas 24 horas
+timestamp = Replace(FormatDateTime(Now, 2), "/", "-") & "_" & Replace(FormatDateTime(Now, 4), ":", "-")
+logFile = pastaDestino & "backup_log_" & timestamp & ".txt"
+logText = ""
 
-    ' Cria objeto FileSystem
-    Set fso = CreateObject("Scripting.FileSystemObject")
+On Error Resume Next
+Set fso = CreateObject("Scripting.FileSystemObject")
 
-    ' Verifica se a pasta de destino existe, senão cria
-    If Not fso.FolderExists(pastaDestino) Then
-        fso.CreateFolder pastaDestino
+If Not fso.FolderExists(pastaDestino) Then
+    fso.CreateFolder pastaDestino
+End If
+
+Set pasta = fso.GetFolder(pastaOrigem)
+
+For Each arquivo In pasta.Files
+    If LCase(fso.GetFileName(arquivo)) <> "moises.txt" Then
+        If LCase(fso.GetExtensionName(arquivo)) = "txt" Then
+            If arquivo.DateLastModified >= dataLimite Then
+                novoNome = fso.GetBaseName(arquivo) & "_" & timestamp & "." & fso.GetExtensionName(arquivo)
+                fso.CopyFile arquivo.Path, pastaDestino & novoNome, True
+                logText = logText & "Copiado: " & arquivo.Name & " como " & novoNome & vbCrLf
+            End If
+        End If
     End If
+Next
 
-    ' Loop por todos os arquivos na pasta de origem
-    arquivo = Dir(pastaOrigem & "*.*")
-    Do While arquivo <> "Moises.txt"
-        ' Copia o arquivo para a pasta de destino
-        fso.CopyFile pastaOrigem & arquivo, pastaDestino & arquivo, True
-        arquivo = Dir
-    Loop
+If logText <> "" Then
+    Dim log
+    Set log = fso.CreateTextFile(logFile, True)
+    log.WriteLine "Backup realizado em " & Now
+    log.WriteLine logText
+    log.Close
+    MsgBox "Backup concluído com sucesso!" & vbCrLf & "Log salvo em: " & logFile
+Else
+    MsgBox "Nenhum arquivo para backup nas últimas 24 horas."
+End If
 
-    MsgBox "Backup concluído com sucesso!", vbInformation
-End Sub
+
+
+
+
