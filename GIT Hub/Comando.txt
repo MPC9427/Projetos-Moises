@@ -127,3 +127,56 @@ Se você tem certeza de que quer sobrescrever o que está no GitHub com sua vers
 
 
 git push --force origin main
+
+
+
+
+Etapas e comandos para criar um Pull Request
+
+
+
+git checkout -b nome-do-branch
+
+git add .
+git commit -m "Pasta Git"
+git push origin Desenvolvimento
+
+
+4. Criar o Pull Request
+- Isso é feito na interface do GitHub:
+- Vá até o repositório.
+- Clique em “Compare & pull request”.
+- Adicione título e descrição.
+- Clique em “Create pull request”.
+💡 Alternativamente, você pode usar a CLI do GitHub com:
+
+gh pr create --base main --head nome-do-branch --title "Título" --body "Descrição"
+
+
+- ver Pull Requests abertos
+
+gh pr list
+
+
+- Ver detalhes de um PR
+
+gh pr view --web
+
+
+- - Mesclar um PR
+
+gh pr merge ID-do-PR
+
+
+- Fechar um PR sem mesclar
+
+gh pr close ID-do-PR
+
+
+
+Se quiser, posso te mostrar um exemplo prático com um repositório fictício ou te ajudar a configurar o GitHub CLI. Quer seguir por esse caminho?
+
+Ola mundo !
+
+
+
