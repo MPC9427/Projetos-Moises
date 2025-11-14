@@ -31,7 +31,7 @@ footer{
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 81, 255, 0);
 }
 #clock {
 	font-size: 160px;
