@@ -15,7 +15,7 @@ set datahora=%ano%-%mes%-%dia%_%hora%-%minuto%
 
 :: Caminhos
 set origem="C:\Users\moises.costa\Desktop\Projetos Sistemas"
-set destino="C:\Users\moises.costa\Desktop\Backup\Backup_%datahora%"
+set destino="C:\Users\moises.costa\Desktop\Backup Projeto\Backup_%datahora%"
 
 :: Criar backup com robocopy
 robocopy %origem% %destino% /E /MIR /R:3 /W:5
