@@ -89,7 +89,7 @@ No terminal:
 
 bash
 git add .
-git commit -m "Mensagem do commit"
+git commit -m "Update"
 git push origin main
 Autenticação com GitHub
 
