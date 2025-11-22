@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+	<head>
+	<nav>
+		<script src="funcs.js" defer></script>
+		<meta charset="UTF-8">
+		<!--meta name="description" content="Gruposc [ ]">
+		<meta name="keywords" content="Gruposc, consultas">
+		<meta name="author" content="Suporte PXE">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"!-->
+		<title>Sistema GrupoSC</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="style2.css" type="text/css">
+	</nav>
+<style>
+    body {
+      background-color: #037483;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #b8d1dd62;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-centralizado {
+  text-align: center;
+  font-weight: bold;
+  font-size: 4vw; /* Responsivo com base na largura da tela */
+  color: #ffffff;
+  margin: 0;
+}
+
+
+	/* Botão de modo escuro */
+	.dark-mode-toggle {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: #438acb;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 0.9rem;
+	transition: background-color 0.3s;
+	}
+
+	.dark-mode-toggle:hover {
+	background-color: #336fa3;
+	}
+
+	body.dark-mode {
+	background-color: #121212;
+	color: #f0f0f0;
+	}
+
+	body.dark-mode .logon {
+	background-color: #1e1e1e;
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+	}
+
+	body.dark-mode input,
+	body.dark-mode button {
+	background-color: #2c2c2c;
+	color: #f0f0f0;
+	border: 1px solid #555;
+	}
+
+	body.dark-mode a {
+	color: #90caf9;
+	}
+
+	.piscar {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+</style>
+	</head>
+	<body>
+		<img src="logo2.jpg" alt="Logo do sistema" style="width: 100vw; height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1; opacity: 1.0;">
+		<div>
+			<marquee behavior="scroll" direction="left" style="font-weight: bold;color: #0035e4;font-size: 125%;">
+					Bem-vindo à sua central de informações. Explore os tópicos e aprenda mais!
+			</marquee>
+		</div>
+		
+		<section class="conteudo">
+			
+			<section class="logon">
+				
+					<span style="width: 100%; display: flex; align-items: center;">
+						<span style="margin-left: auto; align-self: center;">
+							<div> <button id="toggleDarkMode" class="dark-mode-toggle">🌙 Modo Escuro</button></div>
+							<div style="position: relative; display: inline-block;">
+								
+								<span src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" tabindex="1" id="languageDropdown" target="_blank" size="1" class="Link_rctAtomLink_VcpXH undefined" style="cursor: pointer; color: rgb(67, 138, 203); line-height: 1;">
+									<div style="vertical-align: baseline; padding: 0px; display: inline-block; margin-right: 4px; align-self: center;"><img src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" alt="Imagem" style="width: 14px; height: 14px; user-select: none;">
+								    </div>Português (Português do Brasil)
+									<i icon="seicon-down-micro" class="Icon_rctIcon_hnUXi seicon-down-micro" style="font-size: 16px; vertical-align: baseline; padding: 0px; display: inline-block; margin-left: 4px; line-height: 1;">	
+									</i>	
+								</span>
+	
+							</div>
+						</span>
+					</span>
+			
+				<div>
+					<div>
+						<div class="logo_login"><img src="C:\Users\moises.costa\Desktop\Projetos Sistemas\logo.png"></div>
+			
+						<form class="loginForm" method="post"  name="form" onSubmit="return valida()">
+							<div class="infos">
+								<input style="text-transform: lowercase;" type="text" required pattern="[a-z.]*" name="usu" autocomplete="on" placeholder="Usuário" size="50" maxlength="40">
+							</div>
+							<div class="infos">
+								<input type="password" name="senha" placeholder="senha" required="" autocomplete="off" size="50" maxlength="40">
+							</div>
+							<div style="width: 100%;">
+								<button class="bt-login" type="submit">Entrar</button>
+							</div>
+							
+							<div class="msg_alerta"> OBRIGATORIO USUARIO E SENHA ! </div>
+							
+								<div>
+									<a href="https://wa.me/5511999999999" target="_blank">
+															
+										Fale conosco no WhatsApp!				
+									</a>
+								</div>
+						</form>
+						
+					</div>
+				</div>
+				
+			</section>
+
+			<footer style="background:rgba(0, 0, 0, 0); height:120px; margin-bottom: 40px;">
+				<div style="width:25%; padding: 0 40px;"></div>
+				<div id="clock"></div>
+			</footer>
+
+			<div class="imagem" style="display: flex;justify-content: space-around;flex-direction: column;align-content: space-around;">
+				
+			<div class="container">
+				<h1 class="titulo-centralizado">BASE DE CONHECIMENTO</h1>
+  			</div>
+			</div>
+		</section>
+	</body>
+</html>
