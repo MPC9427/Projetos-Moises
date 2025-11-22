@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './Projetos-2025//Sistema Gestao de Base Tecnica'
+          path: './Projetos-2025/Sistema Gestao de Base Tecnica'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
