@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard em tempo real</title>
+  <style>
+    body { font-family: Arial; background: #f4f6f9; }
+    .container { display: flex; justify-content: space-around; margin: 20px; }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 220px; margin: 15px; padding: 20px; text-align: center; }
+    .card h2 { margin: 0; font-size: 2em; color: #2c3e50; }
+    .card p { margin: 10px 0 0; color: #7f8c8d; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Dashboard em tempo real</h1>
+  <div class="container">
+    <div class="card"><h2 id="usuarios">0</h2><p>Usuários</p></div>
+    <div class="card"><h2 id="projetos">0</h2><p>Projetos</p></div>
+    <div class="card"><h2 id="mensagens">0</h2><p>Mensagens</p></div>
+
+  </div>
+
+  <script>
+    async function atualizarDashboard() {
+      try {
+        const resposta = await fetch("dados.php");
+        const dados = await resposta.json();
+        document.getElementById("usuarios").textContent = dados.usuarios;
+        document.getElementById("projetos").textContent = dados.projetos;
+        document.getElementById("mensagens").textContent = dados.mensagens;
+       
+      } catch (e) {
+        console.error("Erro ao atualizar:", e);
+      }
+    }
+
+    // Atualiza a cada 5 segundos
+    setInterval(atualizarDashboard, 5000);
+    atualizarDashboard(); // primeira chamada imediata
+  </script>
+</body>
+</html>
