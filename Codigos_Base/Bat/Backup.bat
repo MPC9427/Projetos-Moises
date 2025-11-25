@@ -14,8 +14,8 @@ for /f "tokens=1-2 delims=: " %%a in ("%time%") do (
 set datahora=%ano%-%mes%-%dia%_%hora%-%minuto%
 
 :: Caminhos
-set origem="C:\Users\moises.costa\Desktop\Projetos Sistemas"
-set destino="C:\Users\moises.costa\Desktop\Backup Projeto\Backup_%datahora%"
+set origem="C:\Users\moises.costa\Desktop\Projetos"
+set destino="C:\Users\moises.costa\Desktop\Backup Projeto\Backup_%datahora%.zip"
 
 :: Criar backup com robocopy
 robocopy %origem% %destino% /E /MIR /R:3 /W:5
