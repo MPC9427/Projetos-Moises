@@ -37,10 +37,20 @@
 			setInterval(updateTime, 1000);
 			updateTime();
 
-    function alternarSenha() {
-		const campoSenha = document.getElementById("senha");
-		campoSenha.type = campoSenha.type === "password" ? "text" : "password";
-			}
+   function alternarSenha() {
+      const campoSenha = document.getElementById("senha");
+      const botao = document.getElementById("toggleBtn");
+
+      if (campoSenha.type === "password") {
+        campoSenha.type = "text";
+        botao.textContent = "Ocultar senha";
+      } else {
+        campoSenha.type = "password";
+        botao.textContent = "Mostrar senha";
+      }
+    }
+
+
 
 
     function recuperarSenha(email) {
@@ -65,3 +75,33 @@
 				return true;
 
 				}
+
+    function setDefaultLanguage()
+        {
+            var textElement = document.getElementById("selectedLanguage");
+            var flagElement = document.getElementById("countryIcon");
+            textElement.textContent = "Português (Brasil)";
+            flagElement.className = "adssp-icon-flg-"+"pt_BR";
+            document.body.classList.add("lang-"+"pt_BR"); 
+            if("ar_EG" == "pt_BR" || "iw_IL" ==  "pt_BR")
+            {
+                document.body.classList.add('body-rtl'); 
+            }
+            else
+            {
+                document.body.classList.remove('body-rtl'); 
+            }
+            
+            var elements;
+            if("ru_RU" != "pt_BR")
+            {
+                elements = document.querySelectorAll("span.ru_RU-lang"); 
+            }
+            else
+            {
+                elements = document.querySelectorAll("span.en_US-lang"); 
+            }
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].classList.add("hide");
+            }
+        }

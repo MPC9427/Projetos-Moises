@@ -26,23 +26,112 @@
 		<section class="conteudo">
 			
 			<section class="logon">
-				
 					<span style="width: 100%; display: flex; align-items: center;">
 						<span style="margin-left: auto; align-self: center;">
 							<div> <button id="toggleDarkMode" class="dark-mode-toggle">🌙 Modo Escuro</button></div>
 							<div style="position: relative; display: inline-block;">
-								
-								<span src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" tabindex="1" id="languageDropdown" target="_blank" size="1" class="Link_rctAtomLink_VcpXH undefined" style="cursor: pointer; color: rgb(67, 138, 203); line-height: 1;">
-									<div style="vertical-align: baseline; padding: 0px; display: inline-block; margin-right: 4px; align-self: center;"><img src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" alt="Imagem" style="width: 14px; height: 14px; user-select: none;">
-								    </div>Português (Português do Brasil)
-									<i icon="seicon-down-micro" class="Icon_rctIcon_hnUXi seicon-down-micro" style="font-size: 16px; vertical-align: baseline; padding: 0px; display: inline-block; margin-left: 4px; line-height: 1;">	
-									</i>	
-								</span>
-	
-							</div>
-						</span>
+
+									<span id="LANG_CONTAINER" class="language-container CSTopMenuButtonColor">
+        
+										<select id="languageSelect" class="language-select" onchange="changeLanguage(this.value);">
+
+												<option id="--_--" value="--_--" title="Navegador padrão">
+													Navegador padrão
+												</option>
+										
+												<option id="en_US" value="en_US" title="English">
+													English
+												</option>
+										
+												<option id="ja_JP" value="ja_JP" title="日本語">
+													日本語
+												</option>
+										
+												<option id="zh_CN" value="zh_CN" title="Chinês - Simplificado">
+													Chinês - Simplificado
+												</option>
+										
+												<option id="es_MX" value="es_MX" title="Español">
+													Español
+												</option>
+										
+												<option id="de_DE" value="de_DE" title="Deutsch">
+													Deutsch
+												</option>
+										
+												<option id="pl_PL" value="pl_PL" title="Polski">
+													Polski
+												</option>
+										
+												<option id="pt_BR" value="pt_BR" title="Português (Brasil)" selected="">
+													Português (Brasil)
+												</option>
+										
+												<option id="fr_FR" value="fr_FR" title="Français">
+													Français
+												</option>
+										
+												<option id="tr_TR" value="tr_TR" title="Türkçe">
+													Türkçe
+												</option>
+										
+												<option id="da_DK" value="da_DK" title="Dansk">
+													Dansk
+												</option>
+										
+												<option id="it_IT" value="it_IT" title="Italiano">
+													Italiano
+												</option>
+										
+												<option id="sv_SE" value="sv_SE" title="Svenska">
+													Svenska
+												</option>
+										
+												<option id="nb_NO" value="nb_NO" title="Norsk">
+													Norsk
+												</option>
+										
+												<option id="nl_NL" value="nl_NL" title="Nederlands">
+													Nederlands
+												</option>
+										
+												<option id="ar_EG" value="ar_EG" title="العربية">
+													العربية
+												</option>
+										
+												<option id="fr_CA" value="fr_CA" title="Francês canadense">
+													Francês canadense
+												</option>
+										
+												<option id="ru_RU" value="ru_RU" title="Русский">
+													Русский
+												</option>
+										
+												<option id="en_GB" value="en_GB" title="Inglês britânico">
+													Inglês britânico
+												</option>
+										
+												<option id="iw_IL" value="iw_IL" title="Hebreu">
+													Hebreu
+												</option>
+										
+												<option id="fi_FI" value="fi_FI" title="Suomi">
+													Suomi
+												</option>
+										
+												<option id="ko_KR" value="ko_KR" title="한국어">
+													한국어
+												</option>
+										
+												<option id="zh_TW" value="zh_TW" title="Chinês - Tradicional">
+													Chinês - Tradicional
+												</option>
+										
+
+										</select>
+								</div>
+						</span>	
 					</span>
-			
 				<div>
 					<div>
 						<div class="logo_login"><img src="logo.png"></div>

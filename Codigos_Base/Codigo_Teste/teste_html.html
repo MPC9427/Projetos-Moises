@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Senha com Ícone</title>
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .input-container {
+      position: relative;
+      width: 250px;
+    }
+    .input-container input {
+      width: 100%;
+      padding: 10px 35px 10px 10px; /* espaço para o ícone */
+      font-size: 16px;
+    }
+    .input-container i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>Campo de senha com ícone</h2>
+
+  <div class="input-container">
+    <input type="password" id="senha" placeholder="Digite sua senha">
+    <i id="toggleIcon" class="fa fa-eye"></i>
+  </div>
+
+  <script>
+    const campoSenha = document.getElementById("senha");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    toggleIcon.addEventListener("click", () => {
+      if (campoSenha.type === "password") {
+        campoSenha.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+      } else {
+        campoSenha.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+      }
+    });
+  </script>
+</body>
+</html>
