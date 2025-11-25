@@ -76,32 +76,35 @@
 
 				}
 
-    function setDefaultLanguage()
-        {
-            var textElement = document.getElementById("selectedLanguage");
-            var flagElement = document.getElementById("countryIcon");
-            textElement.textContent = "Português (Brasil)";
-            flagElement.className = "adssp-icon-flg-"+"pt_BR";
-            document.body.classList.add("lang-"+"pt_BR"); 
-            if("ar_EG" == "pt_BR" || "iw_IL" ==  "pt_BR")
-            {
-                document.body.classList.add('body-rtl'); 
-            }
-            else
-            {
-                document.body.classList.remove('body-rtl'); 
-            }
-            
-            var elements;
-            if("ru_RU" != "pt_BR")
-            {
-                elements = document.querySelectorAll("span.ru_RU-lang"); 
-            }
-            else
-            {
-                elements = document.querySelectorAll("span.en_US-lang"); 
-            }
-            for (var i = 0; i < elements.length; i++) {
-                elements[i].classList.add("hide");
-            }
-        }
+    function definirIdiomaPadrao(codigoIdioma, nomeIdioma) {
+    var texto = document.getElementById("selectedLanguage");
+    var bandeira = document.getElementById("countryIcon");
+
+    // Atualiza texto e bandeira
+    texto.textContent = nomeIdioma;
+    bandeira.className = "adssp-icon-flg-" + codigoIdioma;
+
+    // Adiciona classe de idioma ao body
+    document.body.classList.add("lang-" + codigoIdioma);
+
+    // Verifica se é idioma RTL
+    if (codigoIdioma === "ar_EG" || codigoIdioma === "iw_IL") {
+        document.body.classList.add("body-rtl");
+    } else {
+        document.body.classList.remove("body-rtl");
+    }
+
+    // Oculta spans de outros idiomas
+    var elementos;
+    if (codigoIdioma !== "ru_RU") {
+        elementos = document.querySelectorAll("span.ru_RU-lang");
+    } else {
+        elementos = document.querySelectorAll("span.en_US-lang");
+    }
+    for (var i = 0; i < elementos.length; i++) {
+        elementos[i].classList.add("hide");
+    }
+}
+
+// Exemplo de uso:
+definirIdiomaPadrao("pt_BR", "Português (Brasil)");
