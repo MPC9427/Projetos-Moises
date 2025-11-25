@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema GrupoSC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="funcs.js" defer></script>
+  <link rel="stylesheet" href="Style_index.css" type="text/css">
+
+  <style>
+    :root {
+      --primary: #0035e4;
+      --secondary: #f5f7fa;
+      --dark: #1c1c1c;
+      --light: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--secondary);
+      color: var(--dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--light);
+      padding: 1rem 2rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .conteudo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .logon {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo_login img {
+      display: block;
+      margin: 0 auto 1rem;
+      max-width: 120px;
+    }
+
+    .infos input {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 0.6rem 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .infos input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 6px rgba(0,53,228,0.3);
+      outline: none;
+    }
+
+    .bt-login {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .bt-login:hover {
+      background: #002bb5;
+      transform: scale(1.02);
+    }
+
+    .dark-mode-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      float: right;
+    }
+
+    .msg_alerta {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: red;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .titulo-centralizado {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .logon {
+        padding: 1.5rem;
+      }
+      .titulo-centralizado {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Bem-vindo à sua central de informações 🚀
+  </header>
+
+  <section class="conteudo">
+    <section class="logon">
+      <button id="toggleDarkMode" class="dark-mode-toggle">🌙</button>
+      
+      <div class="logo_login"><img src="logo.png" alt="Logo"></div>
+      
+      <form class="loginForm" method="post" name="form" onSubmit="return valida()">
+        <div class="infos">
+          <input type="text" name="usu" placeholder="Usuário" required>
+        </div>
+        <div class="infos">
+          <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <button class="bt-login" type="submit">Entrar</button>
+        <div class="msg_alerta">Obrigatório usuário e senha!</div>
+        <div style="text-align:center; margin-top:1rem;">
+          <a href="https://wa.me/5511999999999" target="_blank">💬 Fale conosco no WhatsApp</a>
+        </div>
+      </form>
+    </section>
+  </section>
+
+  <h1 class="titulo-centralizado">📚 Base de Conhecimento</h1>
+
+  <footer>
+    © 2025 GrupoSC • Todos os direitos reservados
+  </footer>
+</body>
+</html>

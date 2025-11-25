@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema GrupoSC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="funcs.js" defer></script>
+    <link rel="stylesheet" href="Style_index.css" type="text/css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #829dc7;
+            color: #333;
+        }
+
+        header {
+            background: #0035e4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: slideBanner 15s linear infinite;
+        }
+
+        @keyframes slideBanner {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .logon {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .logo_login img {
+            display: block;
+            margin: 0 auto 2%;
+            max-width: 220px;
+        }
+
+        .infos input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+
+        .infos input:focus {
+            border-color: #0035e4;
+            outline: none;
+        }
+
+        .bt-login {
+            width: 100%;
+            padding: 0.8rem;
+            background: #0035e4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.0s;
+        }
+
+        .bt-login:hover {
+            background: #002bb5;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.0rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #000000;
+        }
+
+        .titulo-centralizado {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0035e4;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .logon {
+                padding: 1rem;
+            }
+            .titulo-centralizado {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="left" scrollamount="15" style="font-weight: bold; color: #0035e4; font-size: 125%;">
+        Bem-vindo à sua central de informações. Explore os tópicos e aprenda mais!
+    </marquee>
+
+    <section class="conteudo">
+        <section class="logon">
+            <div> <button id="toggleDarkMode" class="dark-mode-toggle">🌙 Modo Escuro</button></div>
+            
+            <div class="logo_login"><img src="logo.png" alt="Logo"></div>
+            
+            <form class="loginForm" method="post" name="form" onSubmit="return valida()">
+                <div class="infos">
+                    <input type="text" name="usu" placeholder="Usuário" required>
+                </div>
+                <div class="infos">
+                    <input type="password" name="senha" placeholder="Senha" required>
+                </div>
+                <button class="bt-login" type="submit">Entrar</button>
+                    <center> 
+                        <div class="msg_alerta">Obrigatório usuário e senha!</div>
+                    </center>
+                <div>
+                    <center>
+                        <a href= "https://wa.me/5511999999999" target="_blank">💬 Fale conosco no WhatsApp </a>
+                    </center>
+                </div>
+            </form>
+        </section>
+
+        <h1 class="titulo-centralizado">📚 Base de Conhecimento</h1>
+    </section>
+
+    <footer>
+        <div id="clock"></div>
+        © 2025 GrupoSC
+    </footer>
+</body>
+</html>
