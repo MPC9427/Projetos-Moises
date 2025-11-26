@@ -1,0 +1,5 @@
+<workflow>
+    <task id="1" action="importarDados"/>
+    <task id="2" action="validarDados"/>
+    <task id="3" action="gerarRelatorio"/>
+</workflow>
