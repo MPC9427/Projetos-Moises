@@ -9,21 +9,20 @@
             form['senha'].focus();
             return false
         }
-    }
+            }
 
+        const botao = document.getElementById("toggleDarkMode");
 
-    const botao = document.getElementById("toggleDarkMode");
+        botao.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
 
-      botao.addEventListener("click", function () {
-       document.body.classList.toggle("dark-mode");
-
-             // Alterna o texto do botão
-      if (document.body.classList.contains("dark-mode")) {
-      botao.textContent = "☀️ Modo Claro";
-       } else {
-      botao.textContent = "🌙 Modo Escuro";
-               }
-        });
+                // Alterna o texto do botão
+        if (document.body.classList.contains("dark-mode")) {
+        botao.textContent = "☀️ Modo Claro";
+        } else {
+        botao.textContent = "🌙 Modo Escuro";
+                }
+            });
 									
  
     function updateTime() {
@@ -77,34 +76,34 @@
 				}
 
     function definirIdiomaPadrao(codigoIdioma, nomeIdioma) {
-    var texto = document.getElementById("selectedLanguage");
-    var bandeira = document.getElementById("countryIcon");
+            var texto = document.getElementById("selectedLanguage");
+            var bandeira = document.getElementById("countryIcon");
 
-    // Atualiza texto e bandeira
-    texto.textContent = nomeIdioma;
-    bandeira.className = "adssp-icon-flg-" + codigoIdioma;
+            // Atualiza texto e bandeira
+            texto.textContent = nomeIdioma;
+            bandeira.className = "adssp-icon-flg-" + codigoIdioma;
 
-    // Adiciona classe de idioma ao body
-    document.body.classList.add("lang-" + codigoIdioma);
+            // Adiciona classe de idioma ao body
+            document.body.classList.add("lang-" + codigoIdioma);
 
-    // Verifica se é idioma RTL
-    if (codigoIdioma === "ar_EG" || codigoIdioma === "iw_IL") {
-        document.body.classList.add("body-rtl");
-    } else {
-        document.body.classList.remove("body-rtl");
-    }
+            // Verifica se é idioma RTL
+            if (codigoIdioma === "ar_EG" || codigoIdioma === "iw_IL") {
+                document.body.classList.add("body-rtl");
+            } else {
+                document.body.classList.remove("body-rtl");
+            }
 
-    // Oculta spans de outros idiomas
-    var elementos;
-    if (codigoIdioma !== "ru_RU") {
-        elementos = document.querySelectorAll("span.ru_RU-lang");
-    } else {
-        elementos = document.querySelectorAll("span.en_US-lang");
-    }
-    for (var i = 0; i < elementos.length; i++) {
-        elementos[i].classList.add("hide");
-    }
-}
+            // Oculta spans de outros idiomas
+            var elementos;
+            if (codigoIdioma !== "ru_RU") {
+                elementos = document.querySelectorAll("span.ru_RU-lang");
+            } else {
+                elementos = document.querySelectorAll("span.en_US-lang");
+            }
+            for (var i = 0; i < elementos.length; i++) {
+                elementos[i].classList.add("hide");
+            }
+        }
 
-// Exemplo de uso:
-definirIdiomaPadrao("pt_BR", "Português (Brasil)");
+        // Exemplo de uso:
+        definirIdiomaPadrao("pt_BR", "Português (Brasil)");
